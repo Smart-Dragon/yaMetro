@@ -1,6 +1,6 @@
 # yaMetro
 ## How To Use
-----------
+### Init
 ```js
 $("#metro_map").yaMetro({
 	onStationSelected : function(id,name){
@@ -10,4 +10,13 @@ $("#metro_map").yaMetro({
 		...
 	}
 });
+```
+### Methods
+selectMetro
+```js
+$("#metro_map").yaMetro('selectMetro',id,false);
+```
+unselectMetro
+```js
+$("#metro_map").yaMetro('unselectMetro',id,false);
 ```
