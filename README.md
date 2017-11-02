@@ -1,4 +1,4 @@
-# yaMetro
+# Yandex Metro
 ## How To Use
 ### Init
 ```js
