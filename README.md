@@ -4,6 +4,13 @@
 ```js
 $("#metro_map").yaMetro();
 ```
+### Propetries
+`selectedOpacity` - opacity of the map when the station is selected. Default is 0.2
+
+`controlPanEnabled` - if false, prevents the map from being dragged. It is enabled by default.
+
+`controlZoomEnabled` - if false, disables zooming on the map. It is enabled by default.
+
 ### Events
 onStationSelected
 ```js
@@ -29,4 +36,8 @@ $("#metro_map").yaMetro('selectMetro',id,false);
 unselectMetro
 ```js
 $("#metro_map").yaMetro('unselectMetro',id,false);
+```
+unselectAllMetro
+```js
+$("#metro_map").yaMetro('unselectAllMetro',id,false);
 ```
