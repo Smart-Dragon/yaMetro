@@ -4,7 +4,7 @@
 ```js
 $("#metro_map").yaMetro();
 ```
-### Propetries
+### Properties
 `selectedOpacity` - opacity of the map when the station is selected. Default is 0.2
 
 `controlPanEnabled` - if false, prevents the map from being dragged. It is enabled by default.
