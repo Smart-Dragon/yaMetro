@@ -1,4 +1,4 @@
-//yaMetro v.1.1.0
+//yaMetro v.1.1.1
 (function( $ ){
 	
 	function getNameStation(id){
@@ -64,6 +64,11 @@
 		}
 	}
 	
+	function getDistance(event) {
+		var d = Math.sqrt(Math.pow(event.originalEvent.touches[0].pageX - event.originalEvent.touches[1].pageX, 2) + Math.pow(event.originalEvent.touches[0].pageY - event.originalEvent.touches[1].pageY, 2));
+		return parseFloat(d);
+    }
+	
 	var eventEnabled = true;
 	var divMetro;
 	var settings;
@@ -74,7 +79,9 @@
 	var transMatrix = [1,0,0,1,25,-100];
 	var startX;
 	var startY;
+	var initialDistance;
 	var isDrag = false;
+	var isPinch = false;
 	var dontClick = false;
 	
 	var methods = {
@@ -131,6 +138,43 @@
 					methods.zoom(delta < 0 ? 1.05 : 0.95);
 					event.preventDefault();
 				});
+				// ################################# FOR MOBILE #############################################
+				$(this).on('touchstart', function(event) {
+					console.log(event);
+					startX = event.originalEvent.touches[0].pageX;
+					startY = event.originalEvent.touches[0].pageY;
+					
+					if (event.originalEvent.touches.length === 2) {
+						isPinch = true;
+						isDrag = false;
+						initialDistance = getDistance(event);
+					}
+					else{
+						isPinch = false;
+						isDrag = true;
+					}
+				});
+				$(this).on('touchmove', function(event) {
+					event.preventDefault();
+					if (isDrag){
+						methods.pan(-1*(startX - event.originalEvent.touches[0].pageX),-1*(startY-event.originalEvent.touches[0].pageY));
+						startX = event.originalEvent.touches[0].pageX;
+						startY = event.originalEvent.touches[0].pageY;
+					}
+					if (isPinch){
+						var dDistance = initialDistance - getDistance(event);
+						if (Math.abs(dDistance) > 10){
+							methods.zoom(dDistance < 0 ? 1.05 : 0.95);
+							initialDistance = getDistance(event);
+						}
+					}
+					
+				});
+				$(this).on('touchend', function(event) {
+					isDrag = false;
+					isPinch = false;
+				});
+
 			});
 		},
 		pan : function(dx, dy){
