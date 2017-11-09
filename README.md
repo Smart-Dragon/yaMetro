@@ -1,5 +1,5 @@
-# Yandex Metro
-![alt text](http://smartdragon.ru/images/yametro_bg.png)
+# yaMetro
+![alt text](http://smartdragon.ru/images/yametro_bg_width.png)
 ## How To Use
 ### Init
 ```js
