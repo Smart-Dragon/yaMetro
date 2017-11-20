@@ -89,6 +89,9 @@
 	var isPinch = false;
 	var dontClick = false;
 	
+	var divMetroWidth = 0;
+	var divMetroHeight = 0;
+	
 	var methods = {
 		init : function(options) {
 			settings = $.extend( {
@@ -100,15 +103,16 @@
 			}, options);
 
 			return this.each(function(){
-				if (divMetro == null){
+				console.log(divMetroWidth + "   " + divMetroHeight);
+				if (divMetro == null || divMetroWidth == 0 || divMetroHeight == 0){
 					divMetro = $(this);
 					
 					$(this).html(yaMetroContent);
 					$(this).find("#smartYaMetro").css({overflow:'hidden'});
 					$(this).disableSelection();
 					
-					var divMetroWidth = divMetro.outerWidth();
-					var divMetroHeight = divMetro.outerHeight();
+					divMetroWidth = divMetro.outerWidth();
+					divMetroHeight = divMetro.outerHeight();
 					
 					if (divMetroWidth !=0 && divMetroHeight!=0){
 						methods.pan((divMetroWidth-yaMetroWidth)/2 - yaMetroStartDx,(divMetroHeight-yaMetroHeight)/2 - yaMetroStartDy);
