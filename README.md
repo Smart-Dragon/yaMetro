@@ -1,7 +1,7 @@
 # yaMetro
 ![alt text](http://smartdragon.ru/images/yametro_bg_width.png)
 ## How To Install
-`npm install --save https://github.com/Smart-Dragon/yaMetro/tarball/master`
+``npm install --save https://github.com/Smart-Dragon/yaMetro/tarball/master``
 ## How To Use
 ### Init
 ```js
