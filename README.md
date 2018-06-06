@@ -8,7 +8,7 @@
 $("#metro_map").yaMetro();
 ```
 ### Properties
-`currentCity` - choosing the city ("moscow", "spb"). Default is "moscow".
+`currentCity` - select city ("moscow", "spb"). Default is "moscow".
 
 `selectedOpacity` - opacity of the map when the station is selected. Default is 0.2.
 
