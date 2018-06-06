@@ -8,7 +8,9 @@
 $("#metro_map").yaMetro();
 ```
 ### Properties
-`selectedOpacity` - opacity of the map when the station is selected. Default is 0.2
+`currentCity` - choosing the city ("moscow", "spb"). Default is "moscow".
+
+`selectedOpacity` - opacity of the map when the station is selected. Default is 0.2.
 
 `controlPanEnabled` - if false, prevents the map from being dragged. It is enabled by default.
 
